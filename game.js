@@ -1,8 +1,10 @@
 window.onload = (event) =>{
-
+var win = false;
+var count =0;
 var walls = document.getElementsByClassName("boundary")
 var start_btn=document.getElementById("start")
 var end_btn=document.getElementById("end")
+
 
     for (var i = 0; i < walls.length; i++) {
         walls[i].onmouseover = TouchWall
@@ -10,12 +12,13 @@ var end_btn=document.getElementById("end")
     }
 
 function TouchWall() {
-    
+    win=false;
+    count-=10
     for (var i = 0; i < walls.length; i++) {
         walls[i].classList.add("youlose")
         document.getElementById("status").innerHTML="You lost"
     }
-    
+    document.querySelector('.example').innerHTML=count
 }
 
 start_btn.onmouseover= ResetWallColor
@@ -38,18 +41,21 @@ function Reset(){
        
     }  
     document.getElementById("status").innerHTML='Begin by moving your mouse over the "S".'
-    
+    document.querySelector('.example').innerHTML=0
 } 
 function GameStatus(){
     if(win){
         document.getElementById("status").innerHTML="You won"
+        count+=5
+        document.querySelector('.example').innerHTML=count
     }
     else{
     document.getElementById("status").innerHTML="You lost"
-    
+    count-=10
+    document.querySelector('.example').innerHTML=count
 }
 }
-
+document.querySelector('.example').innerHTML=count
 
 
 
