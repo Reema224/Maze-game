@@ -13,13 +13,13 @@ var end_btn=document.getElementById("end")
 
 function TouchWall() {
     win=false;
-    
+    // count-=10
     for (var i = 0; i < walls.length-1; i++) {
         walls[i].classList.add("youlose")
         document.getElementById("status").innerHTML="You lost"
         
     }
-   
+    // document.querySelector('.example').innerHTML=count
 }
 
 start_btn.onmouseover= ResetWallColor
@@ -37,12 +37,13 @@ function ResetWallColor() {
 
 function Reset(){
     win=false
+    count=0
     for (var i = 0; i < walls.length-1; i++) {
          walls[i].classList.remove("youlose")
        
     }  
     document.getElementById("status").innerHTML='Begin by moving your mouse over the "S".'
-    document.querySelector('.example').innerHTML=0
+    document.querySelector('.example').innerHTML=count
 } 
 function GameStatus(){
     if(win){
