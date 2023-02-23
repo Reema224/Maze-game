@@ -6,19 +6,20 @@ var start_btn=document.getElementById("start")
 var end_btn=document.getElementById("end")
 
 
-    for (var i = 0; i < walls.length; i++) {
+    for (var i = 0; i < walls.length-1; i++) {
         walls[i].onmouseover = TouchWall
        
     }
 
 function TouchWall() {
     win=false;
-    count-=10
-    for (var i = 0; i < walls.length; i++) {
+    
+    for (var i = 0; i < walls.length-1; i++) {
         walls[i].classList.add("youlose")
         document.getElementById("status").innerHTML="You lost"
+        
     }
-    document.querySelector('.example').innerHTML=count
+   
 }
 
 start_btn.onmouseover= ResetWallColor
@@ -27,7 +28,7 @@ end_btn.onmouseover= GameStatus
 
 function ResetWallColor() {
     win = true;
-    for (var i = 0; i < walls.length; i++) {
+    for (var i = 0; i < walls.length-1; i++) {
          walls[i].classList.remove("youlose")
          
     } 
@@ -36,7 +37,7 @@ function ResetWallColor() {
 
 function Reset(){
     win=false
-    for (var i = 0; i < walls.length; i++) {
+    for (var i = 0; i < walls.length-1; i++) {
          walls[i].classList.remove("youlose")
        
     }  
